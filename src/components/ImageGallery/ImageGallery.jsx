@@ -1,20 +1,17 @@
-import React from 'react';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import css from './ImageGallery.module.css';
 
-export class ImageGallery extends React.Component {
-  getURL = url => {
-    this.props.openModal(url);
+export function ImageGallery({ openModal, sendImages }) {
+  const getURL = url => {
+    openModal(url);
   };
 
-  render() {
-    return (
-      <ul className={css.imageGallery}>
-        <ImageGalleryItem
-          sendImages={this.props.sendImages}
-          openModal={this.getURL}
-        ></ImageGalleryItem>
-      </ul>
-    );
-  }
+  return (
+    <ul className={css.imageGallery}>
+      <ImageGalleryItem
+        sendImages={sendImages}
+        openModal={getURL}
+      ></ImageGalleryItem>
+    </ul>
+  );
 }
